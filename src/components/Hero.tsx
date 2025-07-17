@@ -1,8 +1,7 @@
-import React from 'react';
 import { Parallax } from 'react-scroll-parallax';
 import { motion } from 'framer-motion';
 import { Download, Mail, ArrowDown } from 'lucide-react';
-import '../styles/Hero.css'; // ✅ Import the custom CSS
+import '../styles/Hero.css'; 
 
 const Hero = () => {
   const scrollToNext = () => {
@@ -34,7 +33,7 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
         >
-          <img src="src/public/profile.png" alt="Nimesha Thalgaspitiya" />
+          <img src="/profile.png" alt="Nimesha Thalgaspitiya" />
         </motion.div>
 
         {/* Name and Title */}

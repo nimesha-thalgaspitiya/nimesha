@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const FloatingLeaves = () => {
@@ -33,7 +32,6 @@ const FloatingLeaves = () => {
             ease: 'linear',
           }}
         >
-          🍃
         </motion.div>
       ))}
     </div>
