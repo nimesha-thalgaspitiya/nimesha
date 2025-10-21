@@ -45,14 +45,22 @@ const Research = () => {
             </div>
 
             <div className="border-l-4 border-emerald-500 pl-6 mb-8">
+              <div className="mb-6">
+                <img
+                  src="/research.jpg"
+                  alt="Research on Visual Pollution Impact"
+                  className="w-full h-[32rem] object-cover rounded-lg shadow-2xl"
+                />
+              </div>
+
               <h4 className="text-xl font-bold text-gray-800 mb-4">
                 "Impact of Visual Pollution on the Heritage Landscape – A Case Study in Kandy Grid City"
               </h4>
-              
+
               <p className="text-gray-700 leading-relaxed mb-6">
-                This research examines the critical relationship between visual pollution and heritage landscape preservation 
-                in Kandy's historic grid city. The study focuses on identifying sources of visual disruption, analyzing their 
-                impact on the cultural and aesthetic value of the heritage landscape, and proposing sustainable design solutions 
+                This research examines the critical relationship between visual pollution and heritage landscape preservation
+                in Kandy's historic grid city. The study focuses on identifying sources of visual disruption, analyzing their
+                impact on the cultural and aesthetic value of the heritage landscape, and proposing sustainable design solutions
                 to mitigate these effects while preserving the city's historical character.
               </p>
             </div>

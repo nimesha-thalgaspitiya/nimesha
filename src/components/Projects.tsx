@@ -24,7 +24,7 @@ const Projects = () => {
       location: 'Makumbura Multimodal Transport Hub',
       description: 'Reimagined the Makumbura Multimodal Transport Hub as a vibrant transit space integrating green infrastructure, walkability, and community engagement to foster connection and liveliness.',
       mainImage: '/project2.jpg',
-      images: ['/project2.jpg', '/project2_1.jpg', '/project2_2.jpg']
+      images: ['/project2.jpg', '/project2_1.jpg', '/project2_2.jpg', '/project2_3.jpg', '/project2_4.jpg']
     }
   ];
 

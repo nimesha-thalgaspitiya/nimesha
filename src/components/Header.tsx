@@ -1,20 +1,37 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
-import '../styles/nav.css'; // Import the custom navigation styles
+import '../styles/nav.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [currentSection, setCurrentSection] = useState('');
 
+  // Handle scroll events and section updates
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
+      
+      // Close menu when scrolling
+      if (isMenuOpen) {
+        setIsMenuOpen(false);
+      }
     };
 
+    // Prevent body scroll when menu is open
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
 
   const navItems = [
     { href: '#home', label: 'Home' },
@@ -27,13 +44,19 @@ const Header = () => {
     { href: '#contact', label: 'Contact' },
   ];
 
-  const scrollToSection = (href: string) => {
+  const scrollToSection = useCallback((href: string) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      // First close the menu
+      setIsMenuOpen(false);
+      
+      // Wait for menu close animation
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setCurrentSection(href.replace('#', ''));
+      }, 300);
     }
-    setIsMenuOpen(false); // Close mobile menu on navigation
-  };
+  }, []);
 
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
@@ -72,22 +95,44 @@ const Header = () => {
         {/* Mobile Navigation */}
           <AnimatePresence>
             {isMenuOpen && (
-              <motion.nav
-                className="mobile-nav"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
-              >
-                {navItems.map((item) => (
-                  <button
-                    key={item.href}
-                    onClick={() => scrollToSection(item.href)}
-                  >
-                    {item.label}
-                  </button>
-                ))}
-              </motion.nav>
+              <>
+                <motion.div
+                  className="mobile-nav-overlay"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setIsMenuOpen(false)}
+                />
+                <motion.nav
+                  className={`mobile-nav ${isMenuOpen ? 'active' : ''}`}
+                  initial={{ x: '100%' }}
+                  animate={{ x: 0 }}
+                  exit={{ x: '100%' }}
+                  transition={{ type: 'tween', duration: 0.3 }}
+                >
+                  <div className="mobile-nav-header">
+                    <button
+                      onClick={() => setIsMenuOpen(false)}
+                      className="mobile-nav-close"
+                      aria-label="Close menu"
+                    >
+                      <X size={24} />
+                    </button>
+                  </div>
+                  <div className="mobile-nav-content">
+                    {navItems.map((item) => (
+                      <button
+                        key={item.href}
+                        onClick={() => scrollToSection(item.href)}
+                        className={currentSection === item.href.replace('#', '') ? 'active' : ''}
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </motion.nav>
+              </>
             )}
           </AnimatePresence>
       </div>
