@@ -50,9 +50,10 @@ section#education {
   border-radius: 0.5rem;
   padding: 1.5rem;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
   transition: transform 0.3s ease;
-  width: 40rem;
+  width: 100%;
+  max-width: 40rem;
 }
 
 .edu-card.secondary {

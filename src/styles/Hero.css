@@ -161,6 +161,10 @@
 
 /* 🌿 Responsive */
 @media screen and (max-width: 768px) {
+  #home {
+    height: 100vh;
+  }
+
   #home h1 {
     font-size: 2.5rem;
   }
@@ -172,5 +176,9 @@
   .profile-pic {
     width: 6rem;
     height: 6rem;
+  }
+
+  .scroll-down {
+    bottom: -2rem;
   }
 }
