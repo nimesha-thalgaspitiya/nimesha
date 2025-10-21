@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FolderOpen, Calendar, MapPin, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FolderOpen, Calendar, MapPin, X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   const projects = [
     {
@@ -14,7 +15,7 @@ const Projects = () => {
       location: 'Katunayake Aweriwatta Industrial Zone',
       description: 'Designed a healing environment for the Katunayake Aweriwatta Industrial Zone to enhance employee well-being through green spaces, relaxation zones, and sustainable landscape design.',
       mainImage: '/project1.jpg',
-      images: ['/project1.jpg', '/project1_1.jpg', '/project1_2.jpg']
+      images: ['/project1.jpg', '/project1_1.jpg', '/project1_2.jpg', '/project1_3.jpg', '/project1_4.jpg', '/project1_5.jpg', '/project1_6.jpg', '/project1_7.jpg', '/project1_8.jpg', '/project1_9.jpg', '/project1_10.jpg']
     },
     {
       title: 'Comprehensive Design Project (CDP) - Lively Transit',
@@ -35,6 +36,7 @@ const Projects = () => {
   const closeGallery = () => {
     setSelectedProject(null);
     setCurrentImageIndex(0);
+    setZoomLevel(1);
   };
 
   const nextImage = () => {
@@ -132,11 +134,13 @@ const Projects = () => {
               <X className="h-6 w-6 text-gray-600" />
             </button>
 
-            <div className="relative">
+            <div className="relative overflow-hidden">
               <img
                 src={projects[selectedProject].images[currentImageIndex]}
                 alt={`${projects[selectedProject].title} - Image ${currentImageIndex + 1}`}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                className="max-w-full max-h-[80vh] object-cover rounded-lg transition-transform duration-300 cursor-grab active:cursor-grabbing"
+                style={{ transform: `scale(${zoomLevel})` }}
+                onMouseDown={(e) => e.preventDefault()}
               />
 
               {projects[selectedProject].images.length > 1 && (
@@ -165,6 +169,24 @@ const Projects = () => {
                         }`}
                       />
                     ))}
+                  </div>
+
+                  {/* Zoom Controls */}
+                  <div className="absolute top-4 right-16 flex space-x-2">
+                    <button
+                      onClick={() => setZoomLevel(Math.max(0.5, zoomLevel - 0.25))}
+                      className="bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+                      title="Zoom Out"
+                    >
+                      <ZoomOut className="h-5 w-5 text-gray-800" />
+                    </button>
+                    <button
+                      onClick={() => setZoomLevel(Math.min(3, zoomLevel + 0.25))}
+                      className="bg-white bg-opacity-75 hover:bg-opacity-100 rounded-full p-2 transition-all"
+                      title="Zoom In"
+                    >
+                      <ZoomIn className="h-5 w-5 text-gray-800" />
+                    </button>
                   </div>
                 </>
               )}

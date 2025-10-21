@@ -30,8 +30,7 @@ const Footer = () => {
               <span className="text-xl font-bold">Nimesha Thalgaspitiya</span>
             </div>
             <p className="text-gray-400 leading-relaxed">
-              Undergraduate Landscape Architect passionate about creating sustainable, 
-              nature-driven designs that harmonize built and natural environments.
+              Soon-to-be Landscape Architecture graduate from the University of Moratuwa (Dec 2025), passionate about creative, sustainable, and nature-driven design that blends built and natural environments.
             </p>
           </motion.div>
 

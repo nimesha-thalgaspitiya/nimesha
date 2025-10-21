@@ -1,14 +1,19 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Leaf } from 'lucide-react';
+import { Flower2, Leaf, LeafyGreen } from 'lucide-react';
 
 const FloatingLeaves = () => {
+  const leafComponents = [Leaf, LeafyGreen, Flower2];
+  
   const leaves = Array.from({ length: 8 }, (_, i) => ({
     id: i,
     delay: i * 1.5,
     duration: 20 + i * 2,
     x: Math.random() * 100,
-    size: 24 + Math.random() * 20,
-    color: i % 2 === 0 ? 'text-emerald-300' : 'text-green-400',
+    size: 20 + Math.random() * 16,
+    color: i % 3 === 0 ? 'text-emerald-300' : 
+           i % 3 === 1 ? 'text-green-400' : 'text-emerald-200',
+    LeafComponent: leafComponents[i % leafComponents.length],
   }));
 
   return (
@@ -35,12 +40,13 @@ const FloatingLeaves = () => {
             ease: 'easeInOut',
           }}
         >
-          <Leaf 
-            style={{ 
+          {React.createElement(leaf.LeafComponent, {
+            style: {
               filter: `drop-shadow(0 0 8px rgba(52, 211, 153, 0.3))`,
-              transform: `rotate(${Math.random() * 360}deg)`
-            }} 
-          />
+              transform: `rotate(${Math.random() * 360}deg)`,
+              strokeWidth: 1.5
+            }
+          })}
         </motion.div>
       ))}
     </div>

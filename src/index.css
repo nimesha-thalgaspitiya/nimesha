@@ -8,8 +8,9 @@
   }
   
   body {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Architects Daughter', 'Inter', system-ui, -apple-system, cursive, sans-serif;
     line-height: 1.6;
+    letter-spacing: 0.8px;
   }
 }
 
