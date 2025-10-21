@@ -93,43 +93,6 @@ const Skills = () => {
             ))}
           </div>
 
-          {/* Additional Skills Highlight */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="mt-16 bg-white rounded-2xl shadow-xl p-8 text-center"
-          >
-            <div className="flex justify-center mb-6">
-              <div className="bg-emerald-100 p-4 rounded-full">
-                <Award className="h-8 w-8 text-emerald-600" />
-              </div>
-            </div>
-            
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Core Strengths
-            </h3>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">6+</div>
-                <div className="text-gray-600">Months Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">3+</div>
-                <div className="text-gray-600">Design Tools</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">100%</div>
-                <div className="text-gray-600">Dedication</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-emerald-600 mb-2">∞</div>
-                <div className="text-gray-600">Creativity</div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>

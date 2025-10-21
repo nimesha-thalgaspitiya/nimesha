@@ -6,7 +6,8 @@ header {
   left: 0;
   right: 0;
   position: fixed;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Background transition when scrolling */
@@ -14,7 +15,6 @@ header.scrolled {
   background-color: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 12px rgba(94, 255, 0, 0.1);
-  border-radius: 50px;
 }
 
 /* Container layout */
@@ -43,11 +43,31 @@ header nav button {
   font-weight: 500;
   cursor: pointer;
   color: #374151;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
 }
 
 header nav button:hover {
-  color: #059669; /* emerald-600 */
+  color: #047857;
+  background: rgba(16, 185, 129, 0.1);
+}
+
+header nav button::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #047857;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+header nav button:hover::after {
+  width: 80%;
 }
 
 /* Mobile menu toggle button */

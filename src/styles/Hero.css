@@ -11,32 +11,60 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-  filter: brightness(0.85) contrast(1.05);
+  filter: brightness(0.85) contrast(1.05) saturate(1.1);
+  transform: scale(1.02);
+  transition: transform 8s ease;
+}
+
+#home:hover video {
+  transform: scale(1);
 }
 
 /* 🌿 Overlay effect */
 #home .overlay {
-  background: linear-gradient(to bottom, rgba(6, 95, 70, 0.3), rgba(6, 78, 59, 0.6));
+  background: linear-gradient(
+    135deg, 
+    rgba(6, 95, 70, 0.4), 
+    rgba(6, 78, 59, 0.7),
+    rgba(4, 120, 87, 0.5)
+  );
   position: absolute;
   inset: 0;
   z-index: 10;
+  backdrop-filter: blur(1px);
 }
 
 /* 🌿 Profile Image */
 .profile-pic {
-  width: 10rem;
-  height: 10rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 9999px;
   overflow: hidden;
-  border: 2px solid white;
-  box-shadow: 0 6px 20px rgba(52, 248, 26, 0.2);
+  box-shadow: 
+    0 6px 20px rgba(52, 248, 26, 0.2),
+    0 0 0 4px rgba(255, 255, 255, 0.4),
+    0 0 0 8px rgba(255, 255, 255, 0.2);
   margin: 0 auto 1rem;
+  transition: all 0.5s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.02) rotate(2deg);
+  box-shadow: 
+    0 8px 25px rgba(52, 248, 26, 0.3),
+    0 0 0 6px rgba(255, 255, 255, 0.5),
+    0 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .profile-pic img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  transition: transform 0.5s ease;
+}
+
+.profile-pic:hover img {
+  transform: scale(1.1);
 }
 
 /* 🌿 Text */
@@ -61,20 +89,44 @@
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 2rem;
-  font-weight: 400;
+  font-weight: 500;
   border-radius: 99px;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.1),
+    0 0 0 2px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-button::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.6s ease;
+}
+
+.hero-button:hover::before {
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .hero-button.white {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.95);
   color: #047857;
+  backdrop-filter: blur(4px);
 }
 
 .hero-button.white:hover {
-  background-color: #ecfdf5;
-  transform: scale(1.05);
+  background-color: white;
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 
+    0 6px 20px rgba(4, 120, 87, 0.2),
+    0 0 0 3px rgba(255, 255, 255, 0.2);
 }
 
 /* .hero-button.outline {

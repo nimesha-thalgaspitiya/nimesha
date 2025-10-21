@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
+import { Leaf } from 'lucide-react';
 
 const FloatingLeaves = () => {
-  const leaves = Array.from({ length: 6 }, (_, i) => ({
+  const leaves = Array.from({ length: 8 }, (_, i) => ({
     id: i,
-    delay: i * 2,
-    duration: 15 + i * 2,
+    delay: i * 1.5,
+    duration: 20 + i * 2,
     x: Math.random() * 100,
-    size: 20 + Math.random() * 20,
+    size: 24 + Math.random() * 20,
+    color: i % 2 === 0 ? 'text-emerald-300' : 'text-green-400',
   }));
 
   return (
@@ -14,24 +16,31 @@ const FloatingLeaves = () => {
       {leaves.map((leaf) => (
         <motion.div
           key={leaf.id}
-          className="absolute text-emerald-300 opacity-20"
+          className={`absolute ${leaf.color} opacity-30 filter blur-[0.5px]`}
           style={{
             left: `${leaf.x}%`,
             fontSize: `${leaf.size}px`,
           }}
-          initial={{ y: -50, rotate: 0 }}
+          initial={{ y: -50, rotate: 0, scale: 0 }}
           animate={{
             y: ['100vh', '-50px'],
-            rotate: [0, 360],
-            x: [0, 50, -50, 0],
+            rotate: [0, 180, 360],
+            scale: [0.8, 1, 0.8],
+            x: [0, 30, -30, 0],
           }}
           transition={{
             duration: leaf.duration,
             repeat: Infinity,
             delay: leaf.delay,
-            ease: 'linear',
+            ease: 'easeInOut',
           }}
         >
+          <Leaf 
+            style={{ 
+              filter: `drop-shadow(0 0 8px rgba(52, 211, 153, 0.3))`,
+              transform: `rotate(${Math.random() * 360}deg)`
+            }} 
+          />
         </motion.div>
       ))}
     </div>
