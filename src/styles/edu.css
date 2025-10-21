@@ -110,8 +110,12 @@ section#education {
 
   .edu-card {
     padding: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: clamp(0.5rem, 2vw, 1rem); /* enforce a small minimum gap on mobile */
     transform: none !important;
+  }
+
+  .edu-card:last-child {
+    margin-bottom: 0;
   }
 
   .edu-card h3 {
