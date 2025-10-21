@@ -54,6 +54,7 @@ section#education {
   transition: transform 0.3s ease;
   width: 100%;
   max-width: 40rem;
+  box-sizing: border-box;
 }
 
 .edu-card.secondary {
@@ -84,5 +85,47 @@ section#education {
   width: 1rem;
   height: 1rem;
   margin-right: 0.25rem;
+}
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+  section#education {
+    padding: 3rem 1rem;
+  }
+
+  #education h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-line {
+    left: 1rem;
+  }
+
+  .timeline-icon {
+    width: 3rem;
+    height: 3rem;
+    margin-right: 1rem;
+  }
+
+  .edu-card {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transform: none !important;
+  }
+
+  .edu-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .edu-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .edu-meta > div {
+    width: 100%;
+  }
 }
 

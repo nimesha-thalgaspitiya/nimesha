@@ -14,6 +14,12 @@
   filter: brightness(0.85) contrast(1.05) saturate(1.1);
   transform: scale(1.02);
   transition: transform 8s ease;
+  &::-webkit-media-controls {
+    display: none !important;
+  }
+  &::-webkit-media-controls-start-playback-button {
+    display: none !important;
+  }
 }
 
 #home:hover video {
@@ -163,22 +169,55 @@
 @media screen and (max-width: 768px) {
   #home {
     height: 100vh;
+    min-height: -webkit-fill-available;
   }
 
   #home h1 {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    letter-spacing: 0;
   }
 
   #home p {
     font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .profile-pic {
-    width: 6rem;
-    height: 6rem;
+    width: 8rem;
+    height: 8rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-pic:hover {
+    transform: none;
+    box-shadow: 
+      0 6px 20px rgba(52, 248, 26, 0.2),
+      0 0 0 4px rgba(255, 255, 255, 0.4);
+  }
+
+  .hero-button {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .hero-button:hover {
+    transform: none !important;
   }
 
   .scroll-down {
-    bottom: -2rem;
+    bottom: 1rem;
+    opacity: 0.8;
+  }
+
+  /* Prevent zoom on buttons */
+  .hero-button {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Ensure content is properly centered */
+  #home .container {
+    padding-bottom: 4rem;
   }
 }
