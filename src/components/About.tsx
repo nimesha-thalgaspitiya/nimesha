@@ -30,7 +30,7 @@ const About = () => {
           <div className="w-24 h-1 bg-emerald-500 mx-auto mb-8"></div>
           
           <p className="text-lg md:text-xl text-gray-600 leading-relaxed mb-12">
-            I have completed a degree in Landscape Architecture at the University of Moratuwa, expecting to graduate in December 2025. I have a foundation in landscape design principles and practical experience in the field. I am a hardworking, creative, and nature-driven designer with a passion for integrating built and natural environments through sustainable and innovative solutions.
+            I have completed my degree in Landscape Architecture at the University of Moratuwa. I have a foundation in landscape design principles and practical experience in the field. I am a hard working, creative and nature driven designer with a passion for integrating built and natural environments through sustainable and innovative solutions.
           </p>
 
         </motion.div>
