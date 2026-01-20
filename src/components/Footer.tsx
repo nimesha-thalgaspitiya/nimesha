@@ -29,9 +29,6 @@ const Footer = () => {
             <div className="flex items-center space-x-2 mb-4">
               <span className="text-xl font-bold">Nimesha Thalgaspitiya</span>
             </div>
-            <p className="text-gray-400 leading-relaxed">
-              Soon-to-be Landscape Architecture graduate from the University of Moratuwa (Dec 2025), passionate about creative, sustainable, and nature-driven design that blends built and natural environments.
-            </p>
           </motion.div>
 
           {/* Quick Links */}
