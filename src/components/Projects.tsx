@@ -87,9 +87,8 @@ const Projects = () => {
         ],
       },
 
-      // ✅ PROJECT 4 (NEW)
       {
-        title: "Residential Interior Design – Project 4",
+        title: "Residential Interior Design",
         subtitle: "Space planning + 3D interior visualization",
         period: "August 2024 - September 2024",
         location: "Peradeniya, Kandy",

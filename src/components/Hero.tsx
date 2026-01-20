@@ -138,7 +138,7 @@ const Hero = () => {
             animate={fadeUp(0.25).animate}
             transition={fadeUp(0.25).transition}
           >
-            <a href="/resume.pdf" download className="btn-primary">
+            <a href="/Nimesha_Thalgaspitiya_CV" download className="btn-primary">
               <Download className="btn-ico" />
               <span>Download Resume</span>
             </a>
