@@ -124,9 +124,6 @@ const Experience = () => {
                     <h4 className="text-xl md:text-2xl font-bold text-gray-800">
                       Landscape Project – Kingswood College, Kandy
                     </h4>
-                    <p className="text-gray-600 mt-1">
-                      Click to view the complete project PDF (kingswood.pdf)
-                    </p>
                   </div>
 
                   <a
